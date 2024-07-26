@@ -41,3 +41,9 @@ le = LabelEncoder()
 y = le.fit_transform(y)
 
 y
+
+#Dividindo o conjunto de dados em conjunto de treinamento e conjunto de teste
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, random_state = 1)
+
+print(x_train, x_test, y_train, y_test)
