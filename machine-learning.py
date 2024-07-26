@@ -20,3 +20,16 @@ x[:, 1:3] = imputer.transform(x[:, 1:3])
 
 #Imprimindo o Dataset atualizado
 print(x)
+
+#Variavel Independente
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+ct.fit_transform(x)
+x = np.array(ct.fit_transform(x))
+
+#Variavel Dependente
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+y = le.fit_transform(y)
